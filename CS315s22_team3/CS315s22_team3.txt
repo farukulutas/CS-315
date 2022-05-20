@@ -1,0 +1,95 @@
+imports{}
+
+main
+    // indetifier initialization
+    testVariable << 52;
+    set<G> @setD << file_input('input.txt');
+    // set initialization  and operations
+    set<G> @setA;
+    @setA.union(set_input());
+    set<G> @setB << set_input();
+    @setC << @setA.diff(@setB);
+    @setC << @setA.intersect(@setB);
+    @setC << @setA.union(@setB);
+    @setC << @setA.cartesian(@setB);
+    
+    // adding operation
+    @setA.insert(1);
+    @setA.insert('aString');
+    @setA.insert( testVariable);
+    
+    bool y << @setA.supersetof(@setB);
+    while @setA.supersetof(@setB):
+        if @setB.subsetof(@setA):
+            delete(@setB);
+        else:
+            delete(@setA);
+        endif
+    endwhile
+
+	G elem << a + 52 * testfunc(@setC) % @setB.cardinality();
+
+    bool1 << @setA.contains(52);
+    bool2 << @setA.contains('aString');
+    bool3 << @setA.contains(count);
+    bool2 << @setA.contains('falseString');
+    testVariable2 << 4;
+
+    func foo(int testVariable2):
+        @setA.insert( testVariable2);
+        @setA.insert( '52');
+        return @setA;
+    endfunc
+
+    @setA << foo( testVariable2);
+    
+    int i << 0;
+    for i < 10 , i << i + 1:
+        print(@setA);
+	int j << 0;
+	for j < 20, j << j * 2:
+        	print(@setA);
+    	endfor
+    endfor
+
+    if(bool1 OR bool2):
+        @setB << set_input();
+    else:
+        print(@setA);
+    endif
+    
+    testVariable3 << 17;
+    testVariable4 << 10;
+
+    while(testVariable3 <= testVariable4 ):
+        if @setA.subsetof(@setB):
+            testVariable3 << 97;
+        elseif bool2:
+            @setA.union(@setB);
+        else:
+		for i < 10 , i << i + 1:
+        		print(@setA);
+			for j < 20, j << j * 2:
+        			print(@setB);
+    			endfor
+    		endfor
+	endif
+
+    endwhile
+
+
+    
+    while foo(testVariable3):
+        if @setA.subsetof(@setB):
+            temp << 68;
+        else:
+            @setA.insert(12);
+        endif
+    endwhile
+
+    if foo(testVariable4):
+            temp << 16;
+    else:
+        @setA.union(@setB);
+    endif
+endmain

@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<script>
+      // In this program, scope analysis
+      // of the Javascript language is performed.
+
+      // Initialize a global variable.
+      var msg = "I am global";
+
+      function changeMsg() {
+        // Initialize a local, function-scoped variable. (static scoping)
+        var msg = "I am in changeMsg";
+        console.log(`Inside of changeMsg function-scoped: ${msg}.`);
+      }
+
+      // if variable is not defined; ReferenceError: variable is not defined
+      console.log(`Inside of main: ${undefined_msg}.`) // prints undefined
+      var undefined_msg = "defined"
+
+      console.log(`Inside of main: ${msg}.`); // prints I am global
+      changeMsg() // (function-scoped) print I am in changeMsg
+
+      if (true) {
+        // Initialize a block-scoped variable (static scoping)
+        var msg = "I am in if condition";
+        // prints block-scoped msg; I am in if condition
+        console.log(`Inside of if condition block-scoped: ${msg}.`);
+      }
+
+      function scope_dyn() {
+        var msg = "Dynnamic scoping"
+   
+        print_scope_dyn() // prints I am in if condition since there is no global keyword.
+        // and there is no dynnamic scoping. It is static scoping.
+      }
+
+      function print_scope_dyn() {
+        console.log("msg: "+ msg+"\n")
+      }
+
+      scope_dyn()
+      // If any variable is defined, it cannot be declared as let once again.
+      // let msg = "A" // SyntaxError: Identifier 'msg' has already been declared
+      // prints last assigned msg I am in if condition
+      console.log(`Inside main after block-scoped: ${msg}`)
+    </script>
+	</head>
+</html>
