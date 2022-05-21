@@ -1,4 +1,4 @@
-# CS-315
+# CS315
 All my work in CS 315 - Programming Languages course.
 
 ## Project 1 (CS315_Group3_Cardilan) 91/100
